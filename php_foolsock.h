@@ -21,6 +21,7 @@
 #ifndef PHP_FOOLSOCK_H
 #define PHP_FOOLSOCK_H
 
+// 定义module
 extern zend_module_entry foolsock_module_entry;
 #define phpext_foolsock_ptr &foolsock_module_entry
 
@@ -44,11 +45,18 @@ extern zend_module_entry foolsock_module_entry;
 #    define FOOLSOCK_LIST_INSERT(item, list) zend_list_insert(item, list);
 #endif
 
+// 定义module的初始化函数&结束函数
 PHP_MINIT_FUNCTION(foolsock);
 PHP_MSHUTDOWN_FUNCTION(foolsock);
+
+// 定义请求的初始化函数&结束函数
 PHP_RINIT_FUNCTION(foolsock);
 PHP_RSHUTDOWN_FUNCTION(foolsock);
+
+//声明模块信息函数,即可以在phpinfo看到的信息
 PHP_MINFO_FUNCTION(foolsock);
+
+//构造函数，其他接口
 PHP_METHOD(foolsock,__construct);
 PHP_METHOD(foolsock,pconnect);
 PHP_METHOD(foolsock,read);
